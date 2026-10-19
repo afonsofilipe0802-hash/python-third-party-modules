@@ -8,8 +8,8 @@ import pandas as pd
 # Keep the original row order. All padj values are numeric.
 # Hint: filter the rows, select the 'gene' column, then use .tolist().
 def significant_genes(genes):
-    # +++your code here+++
-    return
+    select=genes[(genes["padj"]<0.05)]["gene"]#filtramos as linhas do gene e dps selcionamos a coluna
+    return select.tolist()#retornei numa lista em python.Nota:não é preciso por argumento dentro do parenteses do .tolist
 
 
 # Provided test helper: leave this unchanged.
