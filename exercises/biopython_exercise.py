@@ -9,8 +9,9 @@ from Bio.Seq import Seq
 # For example, 'ATGGAATAA' gives 'ME'.
 # Hint: create a Seq, use .translate(to_stop=True), then str().
 def translate_dna(dna):
-    # +++your code here+++
-    return
+    my_seq=Seq(dna)                       #Criei um objeto para o meu input(dna) com o Seq importado pela biopython
+    protein=my_seq.translate(to_stop=True)#criei uma variável proteína em que traduziu a seq e mandei para no codão stop
+    return str(protein)                   #returnei a proteína em modo string
 
 
 # Provided test helper: leave this unchanged.
