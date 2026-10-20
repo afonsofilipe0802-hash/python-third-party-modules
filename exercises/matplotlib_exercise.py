@@ -9,8 +9,11 @@ import matplotlib.pyplot as plt
 # Return the axes object (ax). Do not call plt.show() inside the function.
 # Hint: use ax.plot(), ax.set_xlabel(), and ax.set_ylabel().
 def growth_plot(times, densities):
-    # +++your code here+++
-    return
+    fig, ax=plt.subplots()
+    ax.plot(times, densities)
+    ax.set_xlabel("Time (h)")
+    ax.set_ylabel("OD600")
+    return ax 
 
 
 # Provided test helper: leave this unchanged.
