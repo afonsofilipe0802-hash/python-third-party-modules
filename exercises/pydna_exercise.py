@@ -27,10 +27,13 @@ except NameError:
 #   selects the middle fragment in its original order.
 # - Join compatible ends with +, then close the circle with .looped().
 def clone_fragment(fragment):
-    vector = read(here / 'pUCmu.gb')
-    assert vector.seguid() == 'cdseguid=jEg2G-c5DZWICcghJ_xmafqcsTQ', 'checksum does not match.'
-    # +++your code here+++
-    return
+    vector = read(here / 'pUCmu.gb')   #Lê o ficheiro do plasmídeo vetor (pUCmu.gb) a partir do diretório de trabalho atual para a memória como um objeto de DNA do Pydna.
+    assert vector.seguid() == 'cdseguid=jEg2G-c5DZWICcghJ_xmafqcsTQ', 'checksum does not match.'#validação de segurança
+    vector_fragments= vector.cut(HindIII, BamHI)#Simula a digestão enzimática e gera uma lista com os vários fragmentos cortados.
+    back_bone=max(vector_fragments, key=len)#seleciona o maior fragmento obtido da digestão do vetor.
+    left, insert, right=fragment.cut(HindIII, BamHI)#Aplica a mesma digestão enzimática ao fragmento de DNA e como o corte gera três partes (flanco esquerdo, inserto e flanco direito), desempacota diretamente essas três variáveis, isolando o inserto central que nos interessa.
+    final_result= insert+back_bone#une as extremidades pegajosas compatíveis geradas pelas enzimas entre o inserto e a espinha dorsal do vetor.
+    return final_result.looped()#fecha o circulo tornando-o num plasmídeo
 
 
 
