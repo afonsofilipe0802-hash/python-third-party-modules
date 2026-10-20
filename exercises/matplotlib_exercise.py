@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 # Return the axes object (ax). Do not call plt.show() inside the function.
 # Hint: use ax.plot(), ax.set_xlabel(), and ax.set_ylabel().
 def growth_plot(times, densities):
-    fig, ax=plt.subplots()
-    ax.plot(times, densities)
-    ax.set_xlabel("Time (h)")
-    ax.set_ylabel("OD600")
-    return ax 
+    fig, ax=plt.subplots()   #com o package plt defeni a figura e o eixo
+    ax.plot(times, densities)#desenhei o gráfico dizendo o conteúdo de cada eixo
+    ax.set_xlabel("Time (h)")#pus legenda no eixo x
+    ax.set_ylabel("OD600")   #pus legenda no eixo y
+    return ax                #retornei o gráfico
 
 
 # Provided test helper: leave this unchanged.
